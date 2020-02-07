@@ -11,6 +11,7 @@ int main() {
 	for (int i = 1; i <= N; i++) {
 		q.push(i);
 	}
+	if (q.size() == 1)cout << q.front();
 	for (int i = 0; i<N-1; i++) {
 		q.pop();
 		int f = q.front();
