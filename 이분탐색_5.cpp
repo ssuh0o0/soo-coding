@@ -20,6 +20,8 @@ int main() {
 	int left = 1;
 	int right = v[N - 1] - v[0];
 	int mid = 0;
+	int ans = 0; //if only "mid" set-up, it bring about wrong answer. 
+	             //ex) mid==next result (not true )
 	while (left <= right) {
 		mid = (left + right) / 2;
 		cnt = 1;
@@ -34,8 +36,9 @@ int main() {
 			right = mid -1;
 		}
 		else if (cnt >= num) {
+			ans = mid;
 			left = mid+1;
 		}
 	}
-	cout << mid;
+	cout << ans;
 }
