@@ -3,14 +3,15 @@
 #include <algorithm>
 #include <queue>
 using namespace std;
-int visited_dfs[100];
-int visited_bfs[100];
-vector<int> a[100];
+int visited_dfs[10001];
+int visited_bfs[10001];
+vector<int> a[1001];
 void dfs(int s) {
 	if (visited_dfs[s]) return;
 
 	visited_dfs[s] = true;
-	cout << s<<"\t";
+	cout << s<<" ";
+	sort(a[s].begin(), a[s].end());
 	for (int i = 0; i < a[s].size(); i++) {
 		int n = a[s][i];
 		dfs(n);
@@ -25,7 +26,7 @@ void bfs(int s) {
 	while (!q.empty()) {
 		int f = q.front();
 		q.pop();
-		cout << f<<"\t";
+		cout << f<<" ";
 		for (int i = 0; i < a[f].size(); i++) {
 			int b = a[f][i];
 			if (!visited_bfs[b]) {
@@ -48,8 +49,9 @@ int main() {
 	int two = 0;
 	
 	for (int i = 0; i < M; i++) {
-		cin >> one >> two; // connect one to two
+		cin >> one >> two; 
 		a[one].push_back(two);
+		a[two].push_back(one);
 	}
 	dfs(V);
 	cout << endl;
