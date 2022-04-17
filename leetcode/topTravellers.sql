@@ -1,0 +1,4 @@
+SELECT name , IFNULL(SUM(DISTANCE), 0) AS travelled_distance
+FROM USERS LEFT JOIN RIDES ON USERS.ID = RIDES.USER_ID
+GROUP BY NAME
+ORDER BY travelled_distance DESC, name 
