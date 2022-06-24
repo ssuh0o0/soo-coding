@@ -1,11 +1,16 @@
 package Pattern.HeadFirstPattern.chapter4;
 
 public class ChicagoCheesePizza extends Pizza{
-    public ChicagoCheesePizza(){
-        name = "ChicagoCheesePizza";
-		dough = "Regular Crust";
-		sauce = "Marinara Pizza Sauce";
-		toppings.add("Fresh Mozzarella");
-		toppings.add("Parmesan");
+    PizzaIngredientFactory ingredientFactory;
+
+    public ChicagoCheesePizza(PizzaIngredientFactory ingredientFactory){
+        this.ingredientFactory = ingredientFactory;
+    }
+
+    void prepare() {
+        System.out.println("준비중 "+name);
+        dough = ingredientFactory.createDough();
+        sauce = ingredientFactory.createSauce();
+        
     }
 }
