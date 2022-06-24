@@ -2,7 +2,7 @@ package Pattern.HeadFirstPattern.chapter2;
 
 public class ForecastDisplay implements Observer, DisplayElement {
     private float currentPressure = 29.2f;
-    private float lastPressure;
+    private float lastPressure = 0.0f;
     private WeatherData weatherData;
     
     public ForecastDisplay(WeatherData weatherData){
