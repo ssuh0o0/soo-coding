@@ -1,9 +1,15 @@
 package Pattern.HeadFirstPattern.chapter4;
 
 public class NYPizzaStore extends PizzaStore {
-    Pizza createPizza(String item){
+    protected Pizza createPizza(String item){
+        Pizza pizza = null;
+        PizzaIngredientFactory ingredientFactory = new NYPizzaIngredientFactory();
         if(item.equals("cheese")){
-            return new NYStyleCheesePizza();
-        } return null;
+            pizza = new CheesePizza(ingredientFactory);
+            pizza.setName("뉴욕 스타일 치즈 피자");
+        } else if (item.equals("veggie")){
+            pizza = new VeggiePizza(ingredientFactory);
+        }
+        return pizza;
     }
 }
